@@ -35,6 +35,20 @@ source .venv/bin/activate
 echo "🚀 Instalando Navix..."
 pip install .
 
+# Crear symlink global en ~/.local/bin
+mkdir -p "$HOME/.local/bin"
+ln -sf "$PWD/.venv/bin/navix" "$HOME/.local/bin/navix"
+
+# Verificar si ~/.local/bin está en el PATH
+if ! echo "$PATH" | grep -q "$HOME/.local/bin"; then
+    echo ""
+    echo "⚠️ Tu PATH no incluye ~/.local/bin"
+    echo "👉 Agrega esto a tu ~/.bashrc o ~/.zshrc:"
+    echo '    export PATH="$HOME/.local/bin:$PATH"'
+    echo "Luego ejecuta:"
+    echo "    source ~/.bashrc  # o ~/.zshrc"
+fi
+
 # Verificar si el comando quedó disponible
 if command -v navix &> /dev/null; then
     echo ""
