@@ -68,10 +68,11 @@ Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más 
 
 ---
 
-## 🧪 Instalación recomendada (global con `pipx`)
+## 🚀 Instalación global con script
 
 ```bash
 git clone https://github.com/Brextal/navix.git
 cd navix
-pipx install .
-navix
+./install.sh
+
+
