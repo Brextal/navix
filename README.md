@@ -67,6 +67,12 @@ Se aceptan mejoras, refactorizaciones modulares y reportes de compatibilidad. Pu
 Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
 
 ---
+🧭 Cómo iniciar Navix desde la terminal
+Una vez instalado, puedes lanzar Navix desde cualquier terminal escribiendo:
+
+navix
+
+---
 
 ## 🚨 Importante
 
