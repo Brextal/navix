@@ -78,7 +78,7 @@ primero ejecuta, "recuerda primero el git clone" sin otros comandos:
 ```bash
 git clone https://github.com/Brextal/navix.git
 
-
+---
 y luego ejecuta, pueden ser ejecutados todos juntos o por separado:
 
 ```bash
