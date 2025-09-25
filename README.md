@@ -49,7 +49,7 @@ Compatible con Hyprland, modular por diseño, y enfocado en control explícito.
 
 ---
 
-🛠️ Compatibilidad
+## 🛠️ Compatibilidad
 
 Navix ha sido probado en:
 
@@ -57,13 +57,13 @@ Arch Linux + Hyprland + Kitty Fedora y Ubuntu con entorno Wayland Terminales com
 
 ---
 
-🤝 Contribuciones
+## 🤝 Contribuciones
 
 Se aceptan mejoras, refactorizaciones modulares y reportes de compatibilidad. Puedes abrir un issue o enviar un pull request con tus cambios.
 
 ---
 
-📄 Licencia
+## 📄 Licencia
 Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
 
 
@@ -74,7 +74,7 @@ Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más 
 Clonar el repositorio **no instala Navix automáticamente**.  
 Debes ejecutar el instalador manualmente:
 
-primero ejecuta:
+## primero ejecuta:
 ```bash
 git clone https://github.com/Brextal/navix.git
 ```
@@ -86,7 +86,7 @@ chmod +x install.sh
 ./install.sh
 ```
 ---
-🧭 Cómo iniciar Navix desde la terminal
+## 🧭 Cómo iniciar Navix desde la terminal
 Una vez instalado, puedes lanzar Navix desde cualquier terminal escribiendo:
 
 ```bash
