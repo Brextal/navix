@@ -1,28 +1,25 @@
 #!/bin/bash
 
-echo "🛠️ Instalador de Navix — Explorador Terminal con Vista de Imágenes"
+echo "🛠️ Instalador local de Navix — Explorador Terminal con Vista de Imágenes"
 
-# Verificar si pipx está disponible
-if command -v pipx &> /dev/null; then
-    echo "🚀 Instalando navix como comando global con pipx..."
-    pipx install .
-else
-    echo "⚠️ pipx no está disponible. Instalando globalmente con pip..."
-    pip install .
+# Crear entorno virtual si no existe
+if [ ! -d ".venv" ]; then
+    echo "📦 Creando entorno virtual..."
+    python3 -m venv .venv
 fi
 
-# Verificar si el comando navix quedó disponible
+# Activar entorno virtual
+source .venv/bin/activate
+
+# Instalar Navix localmente
+echo "🚀 Instalando Navix..."
+pip install .
+
+# Verificar si el comando quedó disponible
 if command -v navix &> /dev/null; then
-    echo ""
-    echo "✅ Instalación completada. Puedes ejecutar el explorador con:"
-    echo ""
-    echo "    navix"
-    echo ""
-    echo "🖼️ Recuerda usar terminal Kitty para ver imágenes."
-    echo "📂 ¡Disfruta de tu explorador modular!"
+    echo "✅ Instalación completada. Ejecutando Navix..."
     navix
 else
-    echo "❌ Error: el comando 'navix' no está disponible en tu PATH."
-    echo "Verifica que ~/.local/bin esté en tu PATH o usa pipx para instalación aislada."
-    exit 1
+    echo "⚠️ El comando 'navix' no está en el PATH del entorno. Ejecuta manualmente con:"
+    echo "source .venv/bin/activate && navix"
 fi
