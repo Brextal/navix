@@ -74,10 +74,10 @@ Clonar el repositorio **no instala Navix automáticamente**.
 Debes ejecutar el instalador manualmente:
 
 ```bash
+git clone https://github.com/Brextal/navix.git
 cd navix
 chmod +x install.sh
 ./install.sh
-
 
 
 
