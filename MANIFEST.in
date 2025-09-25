@@ -1,0 +1,12 @@
+include README.md
+include LICENSE
+include requirements.txt
+
+# Incluir todos los módulos .py en la raíz
+include *.py
+
+# Excluir archivos temporales y caché
+exclude *.pyc
+exclude __pycache__/
+exclude *.log
+exclude *.swp

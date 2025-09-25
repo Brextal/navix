@@ -1,0 +1,16 @@
+# Entornos virtuales
+.venv/
+venv/
+
+# Archivos de instalación
+build/
+dist/
+*.egg-info/
+
+# Caché de Python
+__pycache__/
+*.pyc
+
+# Archivos de logs y temporales
+*.log
+*.swp
