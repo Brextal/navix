@@ -77,15 +77,15 @@ primero ejecuta, "recuerda primero el git clone" sin otros comandos:
 
 ```bash
 git clone https://github.com/Brextal/navix.git
-
+```
 ---
-y luego ejecuta, pueden ser ejecutados todos juntos o por separado:
+##  luego ejecuta, pueden ser ejecutados todos juntos o por separado:
 
 ```bash
 cd navix
 chmod +x install.sh
 ./install.sh
-
+```
 ---
 🧭 Cómo iniciar Navix desde la terminal
 Una vez instalado, puedes lanzar Navix desde cualquier terminal escribiendo:
