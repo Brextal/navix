@@ -1,7 +1,7 @@
 # 🗂️ Navix — Explorador Terminal con Vista de Imágenes
 
 **Navix** es un explorador de archivos minimalista para terminal, diseñado para entornos Wayland con Kitty.  
-Compatible con Hyprland, modular por diseño, y enfocado en control explícito y reversibilidad quirúrgica.
+Compatible con Hyprland, modular por diseño, y enfocado en control explícito.
 
 🧠 Ideal para usuarios que valoran:
 - Interfaces sin distracciones
