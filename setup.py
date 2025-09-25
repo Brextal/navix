@@ -7,6 +7,8 @@ setup(
     include_package_data=True,
     install_requires=[
         'prompt_toolkit>=3.0.0',
+        'Pillow>=9.0.0',
+        # Agrega otras dependencias si las usas (ej. click, rich, etc.)
     ],
     entry_points={
         'console_scripts': [
