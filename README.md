@@ -53,7 +53,7 @@ Compatible con Hyprland, modular por diseño, y enfocado en control explícito.
 
 Navix ha sido probado en:
 
-Arch Linux + Hyprland + Kitty Fedora y Ubuntu con entorno Wayland Terminales compatibles con kitty +kitten icat
+Arch Linux + Hyprland + Kitty, Fedora y Ubuntu con entorno Wayland Terminales compatibles con kitty +kitten icat
 
 ---
 
