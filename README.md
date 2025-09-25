@@ -73,14 +73,13 @@ Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más 
 
 Clonar el repositorio **no instala Navix automáticamente**.  
 Debes ejecutar el instalador manualmente:
-primero ejecuta, "recuerda primero el git clone" sin otros comandos:
 
+primero ejecuta:
 ```bash
 git clone https://github.com/Brextal/navix.git
 ```
 ---
-##  luego ejecuta, pueden ser ejecutados todos juntos o por separado:
-
+##  luego ejecuta:
 ```bash
 cd navix
 chmod +x install.sh
