@@ -91,7 +91,7 @@ Una vez instalado, puedes lanzar Navix desde cualquier terminal escribiendo:
 
 ```bash
 navix
-
+```
 
 
 
