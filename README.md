@@ -66,11 +66,6 @@ Se aceptan mejoras, refactorizaciones modulares y reportes de compatibilidad. Pu
 📄 Licencia
 Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
 
----
-🧭 Cómo iniciar Navix desde la terminal
-Una vez instalado, puedes lanzar Navix desde cualquier terminal escribiendo:
-
-navix
 
 ---
 
@@ -78,12 +73,26 @@ navix
 
 Clonar el repositorio **no instala Navix automáticamente**.  
 Debes ejecutar el instalador manualmente:
+primero ejecuta, "recuerda primero el git clone" sin otros comandos:
 
 ```bash
 git clone https://github.com/Brextal/navix.git
+
+
+y luego ejecuta, pueden ser ejecutados todos juntos o por separado:
+
+```bash
 cd navix
 chmod +x install.sh
 ./install.sh
+
+---
+🧭 Cómo iniciar Navix desde la terminal
+Una vez instalado, puedes lanzar Navix desde cualquier terminal escribiendo:
+
+navix
+
+
 
 
 
