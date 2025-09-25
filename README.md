@@ -89,6 +89,7 @@ chmod +x install.sh
 🧭 Cómo iniciar Navix desde la terminal
 Una vez instalado, puedes lanzar Navix desde cualquier terminal escribiendo:
 
+```bash
 navix
 
 
