@@ -3,13 +3,13 @@
 **Navix** es un explorador de archivos minimalista para terminal, diseñado para entornos Wayland con Kitty.  
 Compatible con Hyprland, modular por diseño, y enfocado en control explícito.
 
-🧠 Ideal para usuarios que valoran:
+Ideal para usuarios que valoran:
 - Interfaces sin distracciones
 - Navegación rápida por teclado
 - Integración con scripts personalizados
 - Visualización de imágenes en terminal (Kitty)
 
-🔧 Compatible con Linux (Arch, Fedora, Ubuntu) y entornos Wayland.
+Compatible con Linux (Arch, Fedora, Ubuntu) y entornos Wayland.
 
 ---
 
