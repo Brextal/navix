@@ -28,7 +28,7 @@ Compatible con Hyprland, modular por diseño, y enfocado en control explícito.
 
 ---
 
-## 📦 Requisitos
+##  Requisitos
 
 - Python 3.10+ recomendado  
 - Compatible con versiones ≥ 3.8 (no testeado formalmente)
@@ -49,7 +49,7 @@ Compatible con Hyprland, modular por diseño, y enfocado en control explícito.
 
 ---
 
-## 🛠️ Compatibilidad
+##  Compatibilidad
 
 Navix ha sido probado en:
 
@@ -57,19 +57,19 @@ Arch Linux + Hyprland + Kitty, Fedora y Ubuntu con entorno Wayland Terminales co
 
 ---
 
-## 🤝 Contribuciones
+##  Contribuciones
 
 Se aceptan mejoras, refactorizaciones modulares y reportes de compatibilidad. Puedes abrir un issue o enviar un pull request con tus cambios.
 
 ---
 
-## 📄 Licencia
+##  Licencia
 Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
 
 
 ---
 
-## 🚨 Importante
+##  Importante
 
 Clonar el repositorio **no instala Navix automáticamente**.  
 Debes ejecutar el instalador manualmente:
@@ -86,7 +86,7 @@ chmod +x install.sh
 ./install.sh
 ```
 ---
-## 🧭 Cómo iniciar Navix desde la terminal
+##  Cómo iniciar Navix desde la terminal
 Una vez instalado, puedes lanzar Navix desde la terminal escribiendo:
 
 ```bash
