@@ -18,7 +18,7 @@ def icono_archivo(ruta):
     if ext == ".py":
         return "🐍"
     if ext in {".png", ".jpg", ".jpeg", ".gif", ".bmp", ".webp", ".tiff"}:
-        return "🖼️"
+        return "📷"
     if ext in {".md", ".txt", ".log"}:
         return "📄"
     if ext == ".pdf":
