@@ -42,11 +42,27 @@ ln -sf "$PWD/.venv/bin/navix" "$HOME/.local/bin/navix"
 # Verificar si ~/.local/bin está en el PATH
 if ! echo "$PATH" | grep -q "$HOME/.local/bin"; then
     echo ""
-    echo "⚠️ Tu PATH no incluye ~/.local/bin"
-    echo "👉 Agrega esto a tu ~/.bashrc o ~/.zshrc:"
-    echo '    export PATH="$HOME/.local/bin:$PATH"'
-    echo "Luego ejecuta:"
-    echo "    source ~/.bashrc  # o ~/.zshrc"
+    echo "⚙️ Agregando ~/.local/bin al PATH..."
+
+    # Agregar a .bashrc
+    if [ -f "$HOME/.bashrc" ]; then
+        if ! grep -q '~/.local/bin' "$HOME/.bashrc"; then
+            echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bashrc"
+        fi
+    else
+        echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bashrc"
+    fi
+
+    # Agregar a .zshrc
+    if [ -f "$HOME/.zshrc" ]; then
+        if ! grep -q '~/.local/bin' "$HOME/.zshrc"; then
+            echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.zshrc"
+        fi
+    else
+        echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.zshrc"
+    fi
+
+    echo "✅ PATH actualizado. Ejecuta 'source ~/.bashrc' o abre una nueva terminal."
 fi
 
 # Verificar si el comando quedó disponible
