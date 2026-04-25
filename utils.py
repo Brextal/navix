@@ -22,7 +22,7 @@ def icono_archivo(ruta):
     if ext in {".md", ".txt", ".log"}:
         return "📄"
     if ext == ".pdf":
-        return "📕"
+        return "📄"
     if ext in {".zip", ".tar", ".gz", ".7z"}:
         return "📦"
     if ext in {".html", ".htm", ".css", ".js"}:
