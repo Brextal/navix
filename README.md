@@ -28,7 +28,7 @@ Compatible con Linux (Arch, Fedora, Ubuntu) y entornos Wayland.
 
 ---
 
-## 🛡️ Seguridad
+## Seguridad
 
 - Archivos peligrosos bloqueados (scripts, ejecutables, etc.)
 - Validación de extensiones antes de abrir archivos
@@ -37,7 +37,7 @@ Compatible con Linux (Arch, Fedora, Ubuntu) y entornos Wayland.
 
 ---
 
-## 🐛 Correcciones y Mejoras
+## Correcciones y Mejoras
 
 - Lógica de copias mejorada
 - Manejo de symlinks rotos
