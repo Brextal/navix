@@ -1,6 +1,6 @@
-#  Navix — Explorador Terminal con Vista de Imágenes
+# Navix — Explorador Terminal con Vista de Imágenes
 
-**Navix** es un explorador de archivos minimalista para terminal, diseñado para entornos Wayland con Kitty.  
+**Navix** es un explorador de archivos minimalista para terminal, diseñado para entornos Wayland con Kitty.
 Compatible con Hyprland, modular por diseño, y enfocado en control explícito.
 
 Ideal para usuarios que valoran:
@@ -28,12 +28,29 @@ Compatible con Linux (Arch, Fedora, Ubuntu) y entornos Wayland.
 
 ---
 
-##  Requisitos
+## 🛡️ Seguridad
 
-- Python 3.10+ recomendado  
-- Compatible con versiones ≥ 3.8 (no testeado formalmente)
+- Archivos peligrosos bloqueados (scripts, ejecutables, etc.)
+- Validación de extensiones antes de abrir archivos
+- Permisos restrictivos en archivos de log
+- Verificación de symlinks rotos
 
-> ⚠️ Aunque Navix fue desarrollado y probado con Python 3.10+, muchos módulos utilizados existen desde Python 3.8. Si decides probarlo en versiones anteriores, es posible que funcione correctamente. Se agradecen reportes de compatibilidad.
+---
+
+## 🐛 Correcciones y Mejoras
+
+- Lógica de copias mejorada
+- Manejo de symlinks rotos
+- Confirmación doble para borrar carpetas
+- Compatibilidad con Python 3.8+
+
+---
+
+## Requisitos
+
+- Python 3.8+
+- Terminal Kitty con `kitten icat`
+- prompt_toolkit
 
 ---
 
@@ -43,13 +60,15 @@ Compatible con Linux (Arch, Fedora, Ubuntu) y entornos Wayland.
 - Enter para abrir imágenes, reproducir videos o mostrar texto
 - x para marcar archivos
 - c para copiar
-- v para vizualizar fotos en la terminal kitty
+- p para pegar
+- m para mover
+- v para visualizar fotos en la terminal kitty
 - d para borrar
 - Usa --dry-run para simular acciones sin modificar archivos.
 
 ---
 
-##  Compatibilidad
+## Compatibilidad
 
 Navix ha sido probado en:
 
@@ -57,21 +76,31 @@ Arch Linux + Hyprland + Kitty, Fedora y Ubuntu con entorno Wayland Terminales co
 
 ---
 
-##  Contribuciones
+## Tests
+
+Ejecuta los tests con:
+
+```bash
+python3 test_navix.py
+```
+
+---
+
+## Contribuciones
 
 Se aceptan mejoras, refactorizaciones modulares y reportes de compatibilidad. Puedes abrir un issue o enviar un pull request con tus cambios.
 
 ---
 
-##  Licencia
+## Licencia
 Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
 
 
 ---
 
-##  Importante
+## Importante
 
-Clonar el repositorio **no instala Navix automáticamente**.  
+Clonar el repositorio **no instala Navix automáticamente**.
 Debes ejecutar el instalador manualmente:
 
 ## primero ejecuta:
@@ -79,20 +108,17 @@ Debes ejecutar el instalador manualmente:
 git clone https://github.com/Brextal/navix.git
 ```
 ---
-##  luego ejecuta:
+
+## luego ejecuta:
 ```bash
 cd navix
-chmod +x install.sh
-./install.sh
+pip install -e .
 ```
 ---
-##  Cómo iniciar Navix desde la terminal
+
+## Cómo iniciar Navix desde la terminal
 Una vez instalado, puedes lanzar Navix desde la terminal escribiendo:
 
 ```bash
 navix
 ```
-
-
-
-

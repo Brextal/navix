@@ -42,15 +42,16 @@ class Explorador:
                 break
 
     def verificar_archivo_copiado(self):
-        if self.archivo_copiado and not self.archivo_copiado.exists():
-            self.archivo_copiado = None
+        if self.archivo_copiado:
+            if not self.archivo_copiado.exists() or (self.archivo_copiado.is_symlink() and not self.archivo_copiado.resolve().exists()):
+                self.archivo_copiado = None
 
     def render(self):
         self.verificar_archivo_copiado()
         self.stdscr.clear()
         alto, ancho = self.stdscr.getmaxyx()
         max_ancho = ancho - 4
-        max_visible = alto - 6
+        max_visible = max(alto - 6, 1)
         self.stdscr.addstr(0, 0, f"📁 {self.ruta_actual}"[:max_ancho], curses.A_BOLD)
 
         try:

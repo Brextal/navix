@@ -17,10 +17,6 @@ def copiar_archivo(stdscr, origen, destino_base, dry_run=False):
     for i in range(1, 1000):
         destino_p = destino_dir / f"{base}_copia{i}{ext}"
         if destino_p.exists():
-            if destino_p.stat().st_size == origen_p.stat().st_size:
-                stdscr.addstr(alto - 3, 2, f"❌ Ya existe una copia: {destino_p.name}", curses.A_BOLD)
-                log_event("ERROR", f"Copia ya existente: {destino_p}", str(origen_p))
-                return
             continue
         else:
             break
@@ -46,7 +42,7 @@ def copiar_archivo(stdscr, origen, destino_base, dry_run=False):
 def mover_archivo(stdscr, origen, destino, dry_run=False):
     origen_p = Path(origen)
     destino_p = Path(destino).expanduser().resolve()
-    alto, ancho = stdscr.getmaxyx()
+    alto, _ = stdscr.getmaxyx()
 
     # ✅ Validación robusta
     if not destino:
@@ -92,21 +88,34 @@ def mover_archivo(stdscr, origen, destino, dry_run=False):
 
 def eliminar_archivo(stdscr, ruta, nombre, dry_run=False, confirmado=False):
     ruta_p = Path(ruta)
-    if confirmado or confirmar(stdscr, f"¿Eliminar '{nombre}'?"):
-        if dry_run:
-            stdscr.addstr(1, 2, f"🔎 Simulación: eliminaría {nombre}", curses.A_DIM)
-            log_event("SIMULACIÓN", f"Eliminaría {nombre}", str(ruta_p))
+    es_carpeta = ruta_p.is_dir()
+
+    if confirmado:
+        if es_carpeta:
+            if not confirmar(stdscr, f"⚠️ '{nombre}' es una CARPETA. ¿Confirmar borrado definitivo?"):
+                return
+    elif es_carpeta:
+        if not confirmar(stdscr, f"¿Eliminar CARPETA '{nombre}'?"):
             return
-        try:
-            if ruta_p.is_dir():
-                shutil.rmtree(ruta_p)
-            else:
-                ruta_p.unlink()
-            stdscr.addstr(1, 2, f"✅ Eliminado: {nombre}", curses.A_DIM)
-            log_event("BORRADO", f"Elemento eliminado: {nombre}", str(ruta_p))
-        except Exception as e:
-            stdscr.addstr(1, 2, f"❌ Error al borrar: {e}", curses.A_BOLD)
-            log_error(e, f"Error al borrar {ruta_p}")
+        if not confirmar(stdscr, f"⚠️ Confirmar borrado de '{nombre}' (NO SE PUEDE DESHACER)?"):
+            return
+    elif not confirmar(stdscr, f"¿Eliminar '{nombre}'?"):
+        return
+
+    if dry_run:
+        stdscr.addstr(1, 2, f"🔎 Simulación: eliminaría {nombre}", curses.A_DIM)
+        log_event("SIMULACIÓN", f"Eliminaría {nombre}", str(ruta_p))
+        return
+    try:
+        if ruta_p.is_dir():
+            shutil.rmtree(ruta_p)
+        else:
+            ruta_p.unlink()
+        stdscr.addstr(1, 2, f"✅ Eliminado: {nombre}", curses.A_DIM)
+        log_event("BORRADO", f"Elemento eliminado: {nombre}", str(ruta_p))
+    except Exception as e:
+        stdscr.addstr(1, 2, f"❌ Error al borrar: {e}", curses.A_BOLD)
+        log_error(e, f"Error al borrar {ruta_p}")
 
 def ver_archivo(stdscr, ruta, nombre):
     ruta_p = Path(ruta)
@@ -128,7 +137,7 @@ def ver_archivo(stdscr, ruta, nombre):
 
         if ext in ('.png', '.jpg', '.jpeg', '.gif', '.bmp', '.webp', '.tiff'):
             subprocess.run(["kitty", "+kitten", "icat", str(ruta_p)], check=False)
-            input("🖼️ Presiona ENTER para cerrar la imagen...")
+            subprocess.run(["bash", "-c", "read -n 1 -s -r -p 'Presiona ENTER para cerrar...'; exit 0"], check=False)
             subprocess.run(["kitty", "+kitten", "icat", "--clear"], check=False)
 
         elif ext in ('.txt', '.md', '.log'):

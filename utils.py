@@ -6,6 +6,9 @@ from datetime import datetime
 import os
 from prompt_toolkit import prompt
 from prompt_toolkit.completion import PathCompleter
+from prompt_toolkit.validation import Validator, ValidationError
+
+EXTENSIONESPeligrosas = {'.sh', '.bash', '.zsh', '.py', '.js', '.rb', '.perl', '.php', '.pl', '.exe', '.bin', '.run', '.jar', '.msi', '.com', '.bat', '.cmd', '.ps1', '.scr'}
 
 def icono_archivo(ruta):
     ruta_p = Path(ruta)
@@ -36,6 +39,11 @@ def icono_archivo(ruta):
 
 def abrir_archivo(ruta):
     ruta_p = Path(ruta)
+    ext = ruta_p.suffix.lower()
+
+    if ext in EXTENSIONESPeligrosas:
+        return False
+
     sistema = platform.system()
     try:
         if sistema == "Linux":
@@ -50,10 +58,13 @@ def abrir_archivo(ruta):
 def obtener_info(ruta):
     ruta_p = Path(ruta)
     try:
+        if ruta_p.is_symlink() and not ruta_p.exists():
+            return "🔗 roto"
+
         if ruta_p.is_file():
             tamaño = ruta_p.stat().st_size
         elif ruta_p.is_dir():
-            archivos = list(ruta_p.glob("*"))
+            archivos = list(ruta_p.glob("*"))[:100]
             if len(archivos) > 500:
                 return "📦 grande — carpeta"
             tamaño = sum(f.stat().st_size for f in archivos if f.is_file())
@@ -83,8 +94,6 @@ def confirmar(stdscr, mensaje):
     return tecla in (ord('y'), ord('Y'))
 
 def pedir_ruta():
-    from prompt_toolkit.validation import Validator, ValidationError
-
     class CarpetaValidator(Validator):
         def validate(self, document):
             texto = document.text.strip()
